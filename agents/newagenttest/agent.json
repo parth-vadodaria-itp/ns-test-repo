@@ -1,0 +1,15 @@
+{
+  "name": "newagenttest",
+  "displayName": "Newagenttest",
+  "description": "tools prov",
+  "url": "http://localhost:8001/a2a/newagenttest",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ]
+}
