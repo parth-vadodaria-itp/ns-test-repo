@@ -1,0 +1,15 @@
+{
+  "name": "agent_with_r_k_skill",
+  "displayName": "Agent With R K Skill",
+  "description": "t/r 3 test with skill",
+  "url": "http://localhost:8001/a2a/agent_with_r_k_skill",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ]
+}
