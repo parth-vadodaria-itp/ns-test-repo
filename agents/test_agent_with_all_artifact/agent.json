@@ -1,0 +1,15 @@
+{
+  "name": "test_agent_with_all_artifact",
+  "displayName": "Test Agent With All Artifact",
+  "description": "Test agent with skills, tools and mcp",
+  "url": "http://localhost:8001/a2a/test_agent_with_all_artifact",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ]
+}
