@@ -1,0 +1,15 @@
+{
+  "name": "final_test_2_with_uncommited_mcp_skill_tool",
+  "displayName": "Final Test 2 With Uncommited Mcp Skill Tool",
+  "description": "final test 2",
+  "url": "http://localhost:8001/a2a/final_test_2_with_uncommited_mcp_skill_tool",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ]
+}
