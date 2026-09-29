@@ -1,0 +1,15 @@
+{
+  "name": "test_agent_tools_annotation_removal",
+  "displayName": "Test Agent Tools Annotation Removal",
+  "description": "desc",
+  "url": "http://localhost:8001/a2a/test_agent_tools_annotation_removal",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ]
+}
