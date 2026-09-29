@@ -1,0 +1,15 @@
+{
+  "name": "final_test_with_all_artifacts",
+  "displayName": "Final Test With All Artifacts",
+  "description": "sample desc",
+  "url": "http://localhost:8001/a2a/final_test_with_all_artifacts",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ]
+}
