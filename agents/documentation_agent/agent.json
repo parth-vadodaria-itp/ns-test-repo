@@ -1,0 +1,85 @@
+{
+  "name": "documentation_agent",
+  "displayName": "Documentation Agent",
+  "description": "Specialized agent for automated documentation generation and maintenance",
+  "version": "1.0.0",
+  "url": "http://localhost:8001/a2a/documentation_agent",
+  "authentication": {
+    "type": "none"
+  },
+  "capabilities": {
+    "streaming": true,
+    "functions": true
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "api_documentation",
+      "name": "API Documentation",
+      "description": "Generate comprehensive API documentation in multiple formats for projects.",
+      "tags": [
+        "documentation",
+        "api",
+        "generation",
+        "automation"
+      ]
+    },
+    {
+      "id": "docstring_generation",
+      "name": "Docstring Generation",
+      "description": "Create and maintain docstrings for functions and classes following various styles.",
+      "tags": [
+        "documentation",
+        "docstrings",
+        "generation",
+        "standards"
+      ]
+    },
+    {
+      "id": "readme_generation",
+      "name": "README Generation",
+      "description": "Generate professional README files with proper structure and content.",
+      "tags": [
+        "documentation",
+        "readme",
+        "project",
+        "markdown"
+      ]
+    },
+    {
+      "id": "documentation_validation",
+      "name": "Documentation Validation",
+      "description": "Validate documentation quality and coverage across projects.",
+      "tags": [
+        "documentation",
+        "validation",
+        "quality",
+        "coverage"
+      ]
+    },
+    {
+      "id": "documentation_maintenance",
+      "name": "Documentation Maintenance",
+      "description": "Update and synchronize documentation with code changes automatically.",
+      "tags": [
+        "documentation",
+        "maintenance",
+        "sync",
+        "automation"
+      ]
+    }
+  ],
+  "mcpServers": [
+    {
+      "name": "documentation",
+      "location": "internal",
+      "module": "documentation",
+      "displayName": "Documentation Generation Tools"
+    }
+  ]
+}
