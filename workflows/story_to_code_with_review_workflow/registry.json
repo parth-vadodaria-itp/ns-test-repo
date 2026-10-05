@@ -1,0 +1,142 @@
+{
+  "artifact_type": "workflow",
+  "change_type": "create",
+  "config": {
+    "connections": [
+      {
+        "id": "",
+        "route_key": null,
+        "source": "start",
+        "state_injections": [],
+        "target": "story_discovery"
+      },
+      {
+        "id": "",
+        "route_key": null,
+        "source": "story_discovery",
+        "state_injections": [],
+        "target": "code_generation"
+      },
+      {
+        "id": "",
+        "route_key": null,
+        "source": "code_generation",
+        "state_injections": [],
+        "target": "code_review_gate"
+      },
+      {
+        "id": "",
+        "route_key": "approved",
+        "source": "code_review_gate",
+        "state_injections": [],
+        "target": "end"
+      },
+      {
+        "id": "",
+        "route_key": "revise",
+        "source": "code_review_gate",
+        "state_injections": [],
+        "target": "code_generation"
+      }
+    ],
+    "description": "Automated SDLC pipeline that fetches Jira stories, generates code, and includes human review with revision loop.",
+    "name": "story_to_code_with_review_workflow",
+    "nodes": [
+      {
+        "id": "start",
+        "position": {
+          "x": 80.0,
+          "y": 40.0
+        },
+        "type": "start"
+      },
+      {
+        "agent_name": "story_discovery_agent_v2",
+        "id": "story_discovery",
+        "is_library_agent": true,
+        "name": "Story Discovery",
+        "position": {
+          "x": 340.0,
+          "y": 40.0
+        },
+        "type": "agent"
+      },
+      {
+        "agent_name": "code_generation_agent_v2",
+        "id": "code_generation",
+        "is_library_agent": true,
+        "name": "Code Generation",
+        "position": {
+          "x": 600.0,
+          "y": 40.0
+        },
+        "type": "agent"
+      },
+      {
+        "id": "code_review_gate",
+        "max_revision_cycles": 5,
+        "message": "Does the generated code meet requirements? Approve to proceed, or describe changes needed.",
+        "name": "Code Review Gate",
+        "position": {
+          "x": 860.0,
+          "y": 40.0
+        },
+        "revise_agent": "code_generation",
+        "type": "hitl"
+      },
+      {
+        "id": "end",
+        "position": {
+          "x": 1120.0,
+          "y": 40.0
+        },
+        "type": "end"
+      }
+    ],
+    "workflow_level_auth_required": false
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "code_generation_agent_v2",
+      "origin": "platform",
+      "type": "agent",
+      "upstream_content_hash": "ed88e18dc63f6b76bb9eb99d361a1516d81c793d7544673b3139c227bc5832f9",
+      "upstream_version": "platform"
+    },
+    {
+      "name": "story_discovery_agent_v2",
+      "origin": "platform",
+      "type": "agent",
+      "version_no": 1
+    },
+    {
+      "name": "global_tools.py",
+      "origin": "platform",
+      "type": "tool",
+      "upstream_content_hash": "4a899fa6eb1d6026be0ae1ae0c2740ab87ccceeffc223f1bbc4b7862f5d8cead",
+      "upstream_version": "platform"
+    }
+  ],
+  "description": "Automated SDLC pipeline that fetches Jira stories, generates code, and includes human review with revision loop.",
+  "display_name": "Story To Code With Review Workflow",
+  "files": [
+    "workflows/story_to_code_with_review_workflow/__init__.py",
+    "workflows/story_to_code_with_review_workflow/agent.py"
+  ],
+  "name": "story_to_code_with_review_workflow",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_9bb7b882bb5b",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
