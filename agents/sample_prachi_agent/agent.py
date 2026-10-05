@@ -18,6 +18,7 @@ _spec_tools_Account_detail = _ilu.spec_from_file_location(
 _mod_tools_Account_detail = _ilu.module_from_spec(_spec_tools_Account_detail)
 _spec_tools_Account_detail.loader.exec_module(_mod_tools_Account_detail)
 get_account_holder_names = _mod_tools_Account_detail.get_account_holder_names
+get_account_ids = _mod_tools_Account_detail.get_account_ids
 
 
 
@@ -35,6 +36,7 @@ sample_prachi_agent = Agent(
     tools=[
 
         get_account_holder_names,
+        get_account_ids,
     ],
     generate_content_config=types.GenerateContentConfig(
         temperature=0.7,

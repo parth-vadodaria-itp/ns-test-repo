@@ -1,6 +1,6 @@
 {
   "artifact_type": "agent",
-  "change_type": "create",
+  "change_type": "edit",
   "config": {
     "agent_level_auth_required": false,
     "connectors": [],
@@ -8,11 +8,13 @@
     "direct_tools": {
       "tool_filter": null,
       "tool_names": [
-        "get_account_holder_names"
+        "get_account_holder_names",
+        "get_account_ids"
       ]
     },
+    "fork_confirmed": false,
     "guardrails": null,
-    "instructions": "desc",
+    "instructions": "desc instr",
     "mcp_servers": [],
     "model_settings": {
       "max_tokens": null,
@@ -27,9 +29,6 @@
     "skill_refs": [],
     "skills": [],
     "tags": null,
-    "tenant_mcp_servers": [],
-    "tenant_skills": [],
-    "tenant_tools": [],
     "tool_guardrails": null
   },
   "created_by": null,
@@ -38,7 +37,7 @@
       "name": "Account_detail.py",
       "origin": "platform",
       "type": "tool",
-      "upstream_content_hash": "eb74a4a7a79dabadd40660299ec3f0cc034cb4b700dc179b5f842a366da7b2c5",
+      "upstream_content_hash": "e14dcdfbf0d4bc7254a2faa40e8a85d32b8f37933babd3b6a7e176242cd6024b",
       "upstream_version": "platform"
     }
   ],
@@ -55,14 +54,14 @@
   "replaces_version_no": null,
   "restored_from_version_no": null,
   "risk": {
-    "decision_id": "risk_19879c7ac90c",
-    "tier": 1
+    "decision_id": "risk_1a63731927ec",
+    "tier": 2
   },
   "schema_version": 1,
   "secret_refs": [],
   "source": "internal_ui",
   "source_type": "generated",
   "tags": [],
-  "version": "1.0.0",
-  "version_no": 1
+  "version": "1.0.1",
+  "version_no": 2
 }

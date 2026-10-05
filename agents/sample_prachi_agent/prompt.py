@@ -10,5 +10,5 @@ test
 """
 
 SYSTEM_PROMPT = """
-desc
+desc instr
 """
