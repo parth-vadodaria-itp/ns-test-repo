@@ -1,0 +1,7 @@
+{
+  "base-image": "neurostack-runtime:0.0.1",
+  "dependencies": [
+    "google-adk",
+    "mcp"
+  ]
+}
