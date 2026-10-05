@@ -1,0 +1,27 @@
+{
+  "artifact_type": "tool",
+  "change_type": "create",
+  "config": null,
+  "created_by": null,
+  "dependencies": [],
+  "description": "",
+  "display_name": "Weather Fetcher",
+  "files": [
+    "tools/weather_fetcher.py"
+  ],
+  "name": "weather_fetcher.py",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_3c03bc08f6e1",
+    "tier": 3
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "human_approval",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
