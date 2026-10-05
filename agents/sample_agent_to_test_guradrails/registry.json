@@ -1,0 +1,193 @@
+{
+  "artifact_type": "agent",
+  "change_type": "create",
+  "config": {
+    "agent_level_auth_required": false,
+    "connectors": [],
+    "description": "test guardrails",
+    "direct_tools": {
+      "tool_filter": null,
+      "tool_names": [
+        "get_account_balances",
+        "get_account_ids",
+        "add"
+      ]
+    },
+    "guardrails": {
+      "custom_config": {},
+      "enable_traceability": true,
+      "enabled_input_guardrails": [
+        "input_validation",
+        "jailbreak_detection",
+        "prompt_injection",
+        "pii_detection",
+        "content_policy"
+      ],
+      "enabled_output_guardrails": [
+        "output_validation",
+        "content_moderation",
+        "output_pii_redaction",
+        "quality_analysis"
+      ],
+      "log_to_file": true
+    },
+    "instructions": "test instr",
+    "mcp_servers": [],
+    "model_settings": {
+      "max_tokens": null,
+      "name": "gemini/gemini-2.5-flash-lite",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "sample_agent_to_test_guradrails",
+    "oauth_protected_tools": [],
+    "policies": {
+      "effect": "allow",
+      "rules": [
+        {
+          "description": "Only admin and developer roles allowed",
+          "field": "role",
+          "operator": "in",
+          "value": [
+            "admin",
+            "developer"
+          ]
+        },
+        {
+          "description": "Only US and EU regions allowed",
+          "field": "region",
+          "operator": "in",
+          "value": [
+            "US",
+            "EU"
+          ]
+        },
+        {
+          "description": "Not before 9 AM UTC",
+          "field": "time.hour",
+          "operator": ">=",
+          "value": 9
+        },
+        {
+          "description": "Not after 5 PM UTC",
+          "field": "time.hour",
+          "operator": "<=",
+          "value": 17
+        },
+        {
+          "description": "Only on weekdays (Mon-Fri)",
+          "field": "time.weekday",
+          "operator": "is_true",
+          "value": true
+        },
+        {
+          "description": "Only web_fetch tool allowed",
+          "field": "tool",
+          "operator": "in",
+          "value": [
+            "web_fetch"
+          ]
+        },
+        {
+          "description": "Only web_search MCP allowed",
+          "field": "mcp",
+          "operator": "in",
+          "value": [
+            "web_search"
+          ]
+        }
+      ]
+    },
+    "skill_refs": [],
+    "skills": [],
+    "tags": null,
+    "tenant_mcp_servers": [],
+    "tenant_skills": [],
+    "tenant_tools": [],
+    "tool_guardrails": {
+      "allowed_tools": null,
+      "custom_config": {
+        "allowed_tools": [
+          "get_account_balances",
+          "get_account_ids",
+          "add",
+          "load_memory",
+          "load_artifacts"
+        ],
+        "max_calls_per_minute": 20,
+        "restricted_fields": [
+          "pan_number",
+          "account_number",
+          "date_of_birth",
+          "password",
+          "token"
+        ],
+        "role_permissions": {
+          "admin": [
+            "get_account_balances",
+            "get_account_ids",
+            "add"
+          ],
+          "blocked": [],
+          "developer": [
+            "get_account_balances",
+            "add",
+            "get_account_ids"
+          ],
+          "user": [
+            "get_account_balances",
+            "add"
+          ]
+        }
+      },
+      "enabled": [],
+      "enabled_guardrails": [
+        "tool_whitelisting",
+        "rate_limiting",
+        "data_access_control",
+        "rbac"
+      ]
+    }
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "Account_detail.py",
+      "origin": "platform",
+      "type": "tool",
+      "upstream_content_hash": "e14dcdfbf0d4bc7254a2faa40e8a85d32b8f37933babd3b6a7e176242cd6024b",
+      "upstream_version": "platform"
+    },
+    {
+      "name": "pp_calculator_tools.py",
+      "origin": "platform",
+      "type": "tool",
+      "upstream_content_hash": "019b85567e768c9a607f3c7a95dcdce348b986b43f3a76ba501270cdb7f1cf7d",
+      "upstream_version": "platform"
+    }
+  ],
+  "description": "test guardrails",
+  "display_name": "Sample Agent To Test Guradrails",
+  "files": [
+    "agents/sample_agent_to_test_guradrails/agent.json",
+    "agents/sample_agent_to_test_guradrails/agent.py",
+    "agents/sample_agent_to_test_guradrails/manifest.json",
+    "agents/sample_agent_to_test_guradrails/prompt.py"
+  ],
+  "name": "sample_agent_to_test_guradrails",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_9e5a57992f1d",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
