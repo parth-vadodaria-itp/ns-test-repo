@@ -1,0 +1,15 @@
+{
+  "name": "weather_assistance_provider_agent",
+  "displayName": "Weather Assistance Provider Agent",
+  "description": "Provides current weather information for cities worldwide using real-time data from OpenWeatherMap.",
+  "url": "http://localhost:8001/a2a/weather_assistance_provider_agent",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ]
+}
