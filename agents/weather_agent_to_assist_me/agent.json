@@ -1,0 +1,15 @@
+{
+  "name": "weather_agent_to_assist_me",
+  "displayName": "Weather Agent To Assist Me",
+  "description": "Provides weather information using the get_weather tool",
+  "url": "http://localhost:8001/a2a/weather_agent_to_assist_me",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ]
+}

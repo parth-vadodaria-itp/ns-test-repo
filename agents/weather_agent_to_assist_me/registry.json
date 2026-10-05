@@ -1,0 +1,67 @@
+{
+  "artifact_type": "agent",
+  "change_type": "create",
+  "config": {
+    "agent_level_auth_required": false,
+    "connectors": [],
+    "description": "Provides weather information using the get_weather tool",
+    "direct_tools": {
+      "tool_filter": null,
+      "tool_names": []
+    },
+    "guardrails": null,
+    "instructions": "You are a helpful weather assistant that provides weather information to users.\n\n<role>\nYou help users get current weather information and forecasts for any location they request.\n</role>\n\n<instructions>\nWhen a user asks about weather:\n1. Use the get_weather tool to retrieve weather data for the requested location\n2. Present the information in a clear, conversational way\n3. If the location is unclear, ask the user to specify the city or location\n4. If the weather data cannot be retrieved, explain the issue clearly and suggest the user try again or check the location name\n\nAlways be friendly and concise in your responses.\n</instructions>\n\n<constraints>\n- Only provide weather information based on data from the get_weather tool\n- Do not make up or guess weather information\n- If you cannot retrieve weather data, acknowledge the limitation\n</constraints>",
+    "mcp_servers": [],
+    "model_settings": {
+      "max_tokens": null,
+      "name": "gemini-2.5-pro",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "weather_agent_to_assist_me",
+    "oauth_protected_tools": [],
+    "policies": null,
+    "skill_refs": [],
+    "skills": [],
+    "tags": null,
+    "tenant_mcp_servers": [],
+    "tenant_skills": [],
+    "tenant_tools": [
+      "weather_fetcher"
+    ],
+    "tool_guardrails": null
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "weather_fetcher.py",
+      "origin": "tenant_generated",
+      "type": "tool",
+      "version_no": 1
+    }
+  ],
+  "description": "Provides weather information using the get_weather tool",
+  "display_name": "Weather Agent To Assist Me",
+  "files": [
+    "agents/weather_agent_to_assist_me/agent.json",
+    "agents/weather_agent_to_assist_me/agent.py",
+    "agents/weather_agent_to_assist_me/manifest.json",
+    "agents/weather_agent_to_assist_me/prompt.py"
+  ],
+  "name": "weather_agent_to_assist_me",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_f9da7db9fca3",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
