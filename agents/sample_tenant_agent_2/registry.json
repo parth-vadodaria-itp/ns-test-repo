@@ -1,0 +1,56 @@
+{
+  "artifact_type": "agent",
+  "change_type": "create",
+  "config": {
+    "agent_level_auth_required": false,
+    "connectors": [],
+    "description": "desc",
+    "direct_tools": {
+      "tool_filter": null,
+      "tool_names": []
+    },
+    "fork_confirmed": true,
+    "guardrails": null,
+    "instructions": "desc",
+    "mcp_servers": [],
+    "model_settings": {
+      "max_tokens": null,
+      "name": "gemini/gemini-2.5-flash",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "sample_tenant_agent_2",
+    "oauth_protected_tools": [],
+    "policies": null,
+    "skill_refs": [],
+    "skills": [],
+    "tags": null,
+    "tool_guardrails": null
+  },
+  "created_by": null,
+  "dependencies": [],
+  "description": "desc",
+  "display_name": "Sample Tenant Agent 2",
+  "files": [
+    "agents/sample_tenant_agent_2/agent.json",
+    "agents/sample_tenant_agent_2/agent.py",
+    "agents/sample_tenant_agent_2/manifest.json",
+    "agents/sample_tenant_agent_2/prompt.py"
+  ],
+  "name": "sample_tenant_agent_2",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_f8747392c693",
+    "tier": 2
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
