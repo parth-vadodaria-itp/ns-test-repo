@@ -1,0 +1,54 @@
+{
+  "name": "code_review_agent_v2",
+  "displayName": "Code Review Agent v2",
+  "description": "",
+  "version": "1.0.0",
+  "url": "http://localhost:8001/a2a/code_review_agent_v2",
+  "model": "default",
+  "createdAt": "2026-04-17T00:00:00.000000",
+  "authentication": {
+    "type": "none"
+  },
+  "capabilities": {
+    "streaming": true,
+    "functions": true
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [],
+  "mcpServers": [],
+  "directTools": {
+    "enabled": false,
+    "tools": [],
+    "count": 0
+  },
+  "guardrails": {
+    "enabled": false,
+    "traceability": false,
+    "logToFile": false,
+    "inputGuardrails": [],
+    "outputGuardrails": [],
+    "customConfig": {}
+  },
+  "config": {
+    "model": "default",
+    "temperature": 0.7,
+    "maxTokens": null,
+    "topP": 1.0,
+    "topK": null
+  },
+  "summary": {
+    "totalMcpServers": 0,
+    "totalInlineSkills": 0,
+    "totalLibrarySkills": 0,
+    "totalDirectTools": 0,
+    "totalSkills": 0,
+    "guardrailsEnabled": false
+  },
+  "is_active": true,
+  "lifecycle_state": "active"
+}

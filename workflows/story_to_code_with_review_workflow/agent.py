@@ -24,6 +24,12 @@ _spec_agents_code_generation_agent_v2 = _ilu.spec_from_file_location(
 )
 _mod_agents_code_generation_agent_v2 = _ilu.module_from_spec(_spec_agents_code_generation_agent_v2)
 _spec_agents_code_generation_agent_v2.loader.exec_module(_mod_agents_code_generation_agent_v2)
+_spec_agents_code_review_agent_v2 = _ilu.spec_from_file_location(
+    'code_review_agent_v2',
+    _pl.Path(__file__).parent.parent.parent / 'agents' / 'code_review_agent_v2' / 'agent.py',
+)
+_mod_agents_code_review_agent_v2 = _ilu.module_from_spec(_spec_agents_code_review_agent_v2)
+_spec_agents_code_review_agent_v2.loader.exec_module(_mod_agents_code_review_agent_v2)
 _spec_agents_story_discovery_agent_v2 = _ilu.spec_from_file_location(
     'story_discovery_agent_v2',
     _pl.Path(__file__).parent.parent.parent / 'agents' / 'story_discovery_agent_v2' / 'agent.py',
@@ -32,6 +38,7 @@ _mod_agents_story_discovery_agent_v2 = _ilu.module_from_spec(_spec_agents_story_
 _spec_agents_story_discovery_agent_v2.loader.exec_module(_mod_agents_story_discovery_agent_v2)
 
 code_generation = _mod_agents_code_generation_agent_v2.root_agent
+automated_code_review = _mod_agents_code_review_agent_v2.root_agent
 story_discovery = _mod_agents_story_discovery_agent_v2.root_agent
 from pydantic import BaseModel
 from pydantic import BaseModel, Field, model_validator
@@ -172,7 +179,7 @@ def _parse_review_response(raw) -> UserReviewFeedback:
 
 @node(rerun_on_resume=True)
 def code_review_gate(node_input, ctx: Context = None):
-    """Human-in-the-Loop gate: Does the generated code meet requirements? Approve to proceed, or describe changes needed."""
+    """Human-in-the-Loop gate: Review the automated code analysis. Approve to proceed, or describe additional changes needed and select 'revise' to regenerate."""
     iteration = ctx.state.get("iterations_code_review_gate", 0) if ctx else 0
     interrupt_id = f"code_review_gate:iter{iteration}"
     resume_input = ctx.resume_inputs.get(interrupt_id) if ctx else None
@@ -188,7 +195,7 @@ def code_review_gate(node_input, ctx: Context = None):
             body = f"\n\n---\n### Session State\n{body}"
 
         review_content = f"### Output for Review\n{last_output_text}" if last_output_text else "_(No direct output received)_"
-        msg = f"**[Review Cycle {iteration + 1} of 5]**\n\n{review_content}{body}\n\n---\nDoes the generated code meet requirements? Approve to proceed, or describe changes needed."
+        msg = f"**[Review Cycle {iteration + 1} of 5]**\n\n{review_content}{body}\n\n---\nReview the automated code analysis. Approve to proceed, or describe additional changes needed and select 'revise' to regenerate."
         yield RequestInput(message=msg, response_schema=UserReviewFeedback, interrupt_id=interrupt_id)
         return
 
@@ -255,7 +262,8 @@ root_agent = Workflow(
     edges=[
         ("START", story_discovery),
         (story_discovery, code_generation),
-        (code_generation, code_review_gate),
+        (code_generation, automated_code_review),
+        (automated_code_review, code_review_gate),
         (code_review_gate,
             {
             "revise": code_generation
