@@ -7,7 +7,9 @@
     "description": "Fetches weather information for cities using the weather_fetcher tool",
     "direct_tools": {
       "tool_filter": null,
-      "tool_names": []
+      "tool_names": [
+        "get_weather_by_coordinates"
+      ]
     },
     "fork_confirmed": false,
     "guardrails": {
@@ -65,6 +67,13 @@
       "origin": "tenant_generated",
       "type": "tool",
       "version_no": 1
+    },
+    {
+      "name": "weather_tools.py",
+      "origin": "platform",
+      "type": "tool",
+      "upstream_content_hash": "a127d28db0fa26ab05b2799688b4d35f5f37d913c7baf93c5c8804527606c2c5",
+      "upstream_version": "platform"
     }
   ],
   "description": "Fetches weather information for cities using the weather_fetcher tool",
@@ -80,7 +89,7 @@
   "replaces_version_no": null,
   "restored_from_version_no": null,
   "risk": {
-    "decision_id": "risk_beeb48707b9f",
+    "decision_id": "risk_468aeec970f0",
     "tier": 2
   },
   "schema_version": 1,
@@ -88,6 +97,6 @@
   "source": "internal_ui",
   "source_type": "generated",
   "tags": [],
-  "version": "1.0.1",
-  "version_no": 2
+  "version": "1.0.2",
+  "version_no": 3
 }

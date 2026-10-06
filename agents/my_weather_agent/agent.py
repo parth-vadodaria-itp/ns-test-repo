@@ -11,6 +11,13 @@ from .prompt import SYSTEM_PROMPT, AGENT_DESCRIPTION
 
 import importlib.util as _ilu
 import pathlib as _pl
+_spec_tools_weather_tools = _ilu.spec_from_file_location(
+    'weather_tools',
+    _pl.Path(__file__).parent.parent.parent / 'tools' / 'weather_tools.py',
+)
+_mod_tools_weather_tools = _ilu.module_from_spec(_spec_tools_weather_tools)
+_spec_tools_weather_tools.loader.exec_module(_mod_tools_weather_tools)
+get_weather_by_coordinates = _mod_tools_weather_tools.get_weather_by_coordinates
 _spec_tools_weather_fetcher = _ilu.spec_from_file_location(
     'weather_fetcher',
     _pl.Path(__file__).parent.parent.parent / 'tools' / 'weather_fetcher.py',
@@ -34,6 +41,7 @@ my_weather_agent = Agent(
     instruction=SYSTEM_PROMPT,
     tools=[
 
+        get_weather_by_coordinates,
         get_weather,
     ],
     generate_content_config=types.GenerateContentConfig(
