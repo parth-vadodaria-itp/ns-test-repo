@@ -1,0 +1,92 @@
+{
+  "artifact_type": "agent",
+  "change_type": "create",
+  "config": {
+    "agent_level_auth_required": false,
+    "connectors": [],
+    "description": "Fetches weather information for cities using the weather_fetcher tool",
+    "direct_tools": {
+      "tool_filter": null,
+      "tool_names": []
+    },
+    "guardrails": {
+      "custom_config": null,
+      "enable_traceability": true,
+      "enabled_input_guardrails": [
+        "prompt_injection",
+        "jailbreak_detection"
+      ],
+      "enabled_output_guardrails": [
+        "output_validation"
+      ],
+      "log_to_file": true
+    },
+    "instructions": "You are a helpful weather assistant. Your role is to help users get weather information for any city they ask about.\n\nWhen a user asks about the weather:\n1. Identify the city name from their request\n2. Use the get_weather tool to fetch the current weather information for that city\n3. Present the weather information clearly and conversationally\n\nIf the user's request is unclear or doesn't specify a city:\n- Politely ask them which city they'd like weather information for\n- Be helpful in clarifying their request\n\nAlways provide accurate, up-to-date weather information based on what the get_weather tool returns. Be concise but informative in your responses.",
+    "mcp_servers": [],
+    "model_settings": {
+      "max_tokens": null,
+      "name": "default",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "my_weather_agent",
+    "oauth_protected_tools": [],
+    "policies": null,
+    "skill_refs": [],
+    "skills": [],
+    "tags": null,
+    "tenant_mcp_servers": [],
+    "tenant_skills": [],
+    "tenant_tools": [
+      "weather_fetcher"
+    ],
+    "tool_guardrails": {
+      "allowed_tools": null,
+      "custom_config": {
+        "allowed_tools": [
+          "get_weather",
+          "load_artifacts",
+          "load_memory"
+        ]
+      },
+      "enabled": [],
+      "enabled_guardrails": [
+        "tool_whitelisting",
+        "argument_validation"
+      ]
+    }
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "weather_fetcher.py",
+      "origin": "tenant_generated",
+      "type": "tool",
+      "version_no": 1
+    }
+  ],
+  "description": "Fetches weather information for cities using the weather_fetcher tool",
+  "display_name": "My Weather Agent",
+  "files": [
+    "agents/my_weather_agent/agent.json",
+    "agents/my_weather_agent/agent.py",
+    "agents/my_weather_agent/manifest.json",
+    "agents/my_weather_agent/prompt.py"
+  ],
+  "name": "my_weather_agent",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_a041bdc07071",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
