@@ -9,7 +9,15 @@ from google.genai import types
 
 from .prompt import SYSTEM_PROMPT, AGENT_DESCRIPTION
 
-# No MCP servers configured
+import importlib.util as _ilu
+import pathlib as _pl
+_spec_playwright_browser = _ilu.spec_from_file_location(
+    'playwright_browser',
+    _pl.Path(__file__).parent.parent.parent / 'mcp_servers' / 'external' / 'playwright_browser.py',
+)
+_mod_playwright_browser = _ilu.module_from_spec(_spec_playwright_browser)
+_spec_playwright_browser.loader.exec_module(_mod_playwright_browser)
+playwright_browser = _mod_playwright_browser.create_mcp_server
 
 
 
@@ -26,7 +34,7 @@ hub_analysis_agent = Agent(
     instruction=SYSTEM_PROMPT,
     tools=[
 
-
+        playwright_browser(),
     ],
     generate_content_config=types.GenerateContentConfig(
         temperature=0.7,
