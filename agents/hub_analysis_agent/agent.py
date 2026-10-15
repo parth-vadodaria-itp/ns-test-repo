@@ -29,7 +29,7 @@ playwright_browser = _mod_playwright_browser.create_mcp_server
 
 hub_analysis_agent = Agent(
     name="hub_analysis_agent",
-    model='bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0',
+    model='gemini/gemini-2.5-flash',
     description=AGENT_DESCRIPTION,
     instruction=SYSTEM_PROMPT,
     tools=[
