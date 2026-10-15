@@ -1,0 +1,15 @@
+{
+  "name": "hub_analysis_agent",
+  "displayName": "Hub Analysis Agent",
+  "description": "Analyzes hubs mentioned by users and provides insights to help understand data and make informed decisions",
+  "url": "http://localhost:8001/a2a/hub_analysis_agent",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ]
+}
