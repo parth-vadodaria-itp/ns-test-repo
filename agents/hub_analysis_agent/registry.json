@@ -15,7 +15,7 @@
     "mcp_servers": [],
     "model_settings": {
       "max_tokens": null,
-      "name": "openai/gpt-5.4-mini",
+      "name": "bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0",
       "temperature": 0.7,
       "top_k": null,
       "top_p": null
@@ -52,10 +52,10 @@
   ],
   "name": "hub_analysis_agent",
   "origin": "tenant_generated",
-  "replaces_version_no": 3,
+  "replaces_version_no": 4,
   "restored_from_version_no": null,
   "risk": {
-    "decision_id": "risk_dd6a9a83e218",
+    "decision_id": "risk_f1a973120787",
     "tier": 2
   },
   "schema_version": 1,
@@ -63,6 +63,6 @@
   "source": "internal_ui",
   "source_type": "generated",
   "tags": [],
-  "version": "1.0.3",
-  "version_no": 4
+  "version": "1.0.4",
+  "version_no": 5
 }

@@ -29,13 +29,22 @@ playwright_browser = _mod_playwright_browser.create_mcp_server
 
 hub_analysis_agent = Agent(
     name="hub_analysis_agent",
-    model='openai/gpt-5.4-mini',
+    model='bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0',
     description=AGENT_DESCRIPTION,
     instruction=SYSTEM_PROMPT,
     tools=[
 
         playwright_browser(),
     ],
+    generate_content_config=types.GenerateContentConfig(
+        temperature=0.7,
+        safety_settings=[
+            types.SafetySetting(
+                category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+                threshold=types.HarmBlockThreshold.OFF,
+            ),
+        ]
+    ),
 )
 
 root_agent = hub_analysis_agent
