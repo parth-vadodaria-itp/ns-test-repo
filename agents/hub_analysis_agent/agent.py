@@ -8,6 +8,7 @@ from google.adk import Agent
 from google.genai import types
 
 from .prompt import SYSTEM_PROMPT, AGENT_DESCRIPTION
+from neurostack_runtime.service import tenant_model
 
 import importlib.util as _ilu
 import pathlib as _pl
@@ -29,7 +30,7 @@ playwright_browser = _mod_playwright_browser.create_mcp_server
 
 hub_analysis_agent = Agent(
     name="hub_analysis_agent",
-    model='gemini/gemini-2.5-flash',
+    model=tenant_model("gemini-2.5-flash"),
     description=AGENT_DESCRIPTION,
     instruction=SYSTEM_PROMPT,
     tools=[
