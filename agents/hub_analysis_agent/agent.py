@@ -36,15 +36,6 @@ hub_analysis_agent = Agent(
 
         playwright_browser(),
     ],
-    generate_content_config=types.GenerateContentConfig(
-        temperature=0.7,
-        safety_settings=[
-            types.SafetySetting(
-                category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-                threshold=types.HarmBlockThreshold.OFF,
-            ),
-        ]
-    ),
 )
 
 root_agent = hub_analysis_agent
