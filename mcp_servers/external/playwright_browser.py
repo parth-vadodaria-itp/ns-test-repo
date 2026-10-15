@@ -12,7 +12,7 @@ This is an open MCP server (no environment variables or credentials required).
 """
 
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StdioConnectionParams
-from mcp import StdioServerParameters
+from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnectionParams
 
 # A literal, not an environment lookup: generated server files must not ask for any
 # permission of their own, or RiskGate reads every one of them as a new secret
@@ -23,11 +23,8 @@ AGENT_TIMEOUT = 180
 def create_mcp_server() -> MCPToolset:
     """Create and return the MCPToolset for the 'playwright_browser' MCP server."""
     return MCPToolset(
-        connection_params=StdioConnectionParams(
-            server_params=StdioServerParameters(
-                command='npx',
-                args=['-y', '@playwright/mcp@latest'],
-            ),
+        connection_params=StreamableHTTPConnectionParams(
+            url="https://qa.intuitiveiq.ai/api/v1/mcp",
             timeout=AGENT_TIMEOUT,
         ),
     )
